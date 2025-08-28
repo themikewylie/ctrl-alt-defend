@@ -1,0 +1,18 @@
+---
+layout: page
+title: Episodes
+permalink: /episodes/
+---
+<div class="card-list">
+  {%- assign eps = site.episodes | sort: "date" | reverse -%}
+  {%- for ep in eps -%}
+    <article class="card episode-card">
+      <h3><a href="{{ ep.url | relative_url }}">{{ ep.title }}</a></h3>
+      <p class="muted">Episode {{ ep.episode_number }} · {{ ep.date | date: "%b %d, %Y" }} · {{ ep.duration }}</p>
+      <p>{{ ep.summary }}</p>
+      {%- if ep.tags -%}
+      <p>{% for t in ep.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>
+      {%- endif -%}
+    </article>
+  {%- endfor -%}
+</div>

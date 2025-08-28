@@ -1,0 +1,19 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <strong>{{ site.title }}</strong>
+        <p>{{ site.description }}</p>
+      </div>
+      <div>
+        <ul class="list-plain">
+          <li><a href="{{ '/podcast.xml' | relative_url }}">Podcast RSS</a></li>
+          <li><a href="{{ '/feed.xml' | relative_url }}">Site Feed</a></li>
+          <li><a href="{{ '/sitemap.xml' | relative_url }}">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="small muted">© <span id="y"></span> CTRL+ALT+DEFEND</p>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</footer>

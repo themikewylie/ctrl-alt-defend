@@ -1,0 +1,13 @@
+---
+layout: page
+title: Guests
+---
+<div class="card-list">
+  {%- for g in site.guests -%}
+    <article class="card">
+      <h3>{{ g.name }}</h3>
+      <p class="muted">{{ g.title }}{% if g.org %}, {{ g.org }}{% endif %}</p>
+      {{ g.content }}
+    </article>
+  {%- endfor -%}
+</div>

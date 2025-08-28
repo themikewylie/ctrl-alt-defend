@@ -1,0 +1,11 @@
+{% if site.analytics.provider == 'plausible' and site.analytics.plausible_domain %}
+<script defer data-domain="{{ site.analytics.plausible_domain }}" src="https://plausible.io/js/script.js"></script>
+{% endif %}
+{% if site.analytics.provider == 'ga' and site.analytics.ga_measurement_id %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.ga_measurement_id }}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date()); gtag('config', '{{ site.analytics.ga_measurement_id }}');
+</script>
+{% endif %}

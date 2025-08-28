@@ -1,0 +1,44 @@
+:root{
+  --blue-primary:#0A1C40;
+  --blue-secondary:#2E86AB;
+  --neutral-dark:#1A1A1A;
+  --neutral-light:#F2F4F8;
+  --accent:#B8C8D8;
+  --bg:var(--neutral-light);
+  --text:var(--neutral-dark);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+a{color:var(--blue-secondary);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:1.25rem}
+.flex{display:flex}.between{justify-content:space-between}.center{align-items:center}
+.grid{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+.small{font-size:.9rem}.muted{color:#555}
+.eyebrow{letter-spacing:.08em;text-transform:uppercase;color:#555;font-size:.8rem}
+.list-plain{list-style:none;margin:0;padding:0}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;padding:.5rem 1rem;border:2px solid var(--blue-secondary)}
+
+.site-header{background:#fff;border-bottom:1px solid var(--accent)}
+.site-header .brand .logo{font-weight:800;color:var(--blue-primary)}
+.site-header .nav a{margin-left:1rem;color:var(--blue-primary)}
+
+.site-footer{margin-top:3rem;padding:2rem 0;background:#fff;border-top:1px solid var(--accent)}
+.page-header h1,.episode-header h1{margin-bottom:.25rem;color:var(--blue-primary)}
+.summary{font-size:1.1rem;color:#333}
+.hero{width:100%;height:auto;border-radius:10px;border:1px solid var(--accent)}
+audio{width:100%;margin:1rem 0}
+.meta{display:flex;gap:1rem;flex-wrap:wrap;padding:0;list-style:none}
+.card{background:#fff;border:1px solid var(--accent);border-radius:12px;padding:1rem}
+.cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.episode-card h3{margin:.2rem 0}
+.callout{margin:2rem 0;padding:1rem;border-left:4px solid var(--blue-secondary);background:#fff}
+
+.btn{display:inline-block;background:var(--blue-primary);color:#fff;padding:.6rem 1rem;border-radius:8px}
+.btn:hover{filter:brightness(1.1)}
+.tag{display:inline-block;background:var(--accent);padding:.2rem .5rem;border-radius:999px;font-size:.8rem;margin-right:.25rem}
+.search-bar{display:flex;gap:.5rem;margin:1rem 0}
+.search-bar input{flex:1;padding:.6rem;border:1px solid var(--accent);border-radius:8px}
+.card-list{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}

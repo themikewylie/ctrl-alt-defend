@@ -1,0 +1,34 @@
+---
+layout: default
+title: "Home"
+---
+<section class="hero-block card">
+  <h1>CTRL+ALT+DEFEND</h1>
+  <p class="summary">The podcast for defenders who want actionable, real-world tactics and strategies — delivered in a story-driven, visual-friendly format.</p>
+  <p>
+    <a class="btn" href="{{ '/episodes/' | relative_url }}">Listen to Episodes</a>
+    <a class="btn" href="{{ '/podcast.xml' | relative_url }}" style="background:var(--blue-secondary)">Subscribe (RSS)</a>
+  </p>
+</section>
+
+<section>
+  <h2>Latest Episodes</h2>
+  <div class="card-list">
+    {%- assign latest = site.episodes | sort: "date" | reverse -%}
+    {%- for ep in latest limit:4 -%}
+      <article class="card episode-card">
+        <h3><a href="{{ ep.url | relative_url }}">{{ ep.title }}</a></h3>
+        <p class="muted">Episode {{ ep.episode_number }} · {{ ep.date | date: "%b %d, %Y" }} · {{ ep.duration }}</p>
+        <p>{{ ep.summary }}</p>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+<section>
+  <h2>Search</h2>
+  <div class="search-bar">
+    <input id="search" placeholder="Search episodes (topics, titles, summaries)"/>
+  </div>
+  <div id="results"></div>
+</section>

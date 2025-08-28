@@ -1,0 +1,72 @@
+---
+layout: default
+---
+<article class="episode">
+  <header class="episode-header">
+    <p class="eyebrow">Episode {{ page.episode_number }}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}<p class="summary">{{ page.summary }}</p>{% endif %}
+    {% if page.hero_image %}
+      <img class="hero" src="{{ page.hero_image | relative_url }}" alt="Artwork for {{ page.title }}"/>
+    {% endif %}
+    {% if page.audio and page.audio.mp3_url %}
+    <audio controls preload="none">
+      <source src="{{ page.audio.mp3_url }}" type="{{ page.audio.mime_type | default: 'audio/mpeg' }}">
+      Your browser does not support the audio element.
+    </audio>
+    {% endif %}
+    <ul class="meta">
+      {% if page.date %}<li><strong>Published:</strong> {{ page.date | date: "%B %d, %Y" }}</li>{% endif %}
+      {% if page.duration %}<li><strong>Duration:</strong> {{ page.duration }}</li>{% endif %}
+      {% if page.topics %}<li><strong>Topics:</strong> {{ page.topics | array_to_sentence_string }}</li>{% endif %}
+    </ul>
+  </header>
+
+  <section class="episode-body">
+    {{ content }}
+  </section>
+
+  {% comment %} Auto-extract Takeaways section if present {% endcomment %}
+  {% assign takeaways = content | split: '## Takeaways' %}
+  {% if takeaways.size > 1 %}
+  <aside class="callout">
+    <h2>Tactical Takeaways</h2>
+    {{ takeaways[1] | split:'##' | first | markdownify }}
+  </aside>
+  {% endif %}
+
+  {% if page.guests %}
+  <section class="guests">
+    <h2>Guests</h2>
+    <div class="cards">
+      {% for g in page.guests %}
+        <article class="card guest">
+          <h3>{{ g.name }}</h3>
+          <p class="muted">{{ g.title }}{% if g.org %}, {{ g.org }}{% endif %}</p>
+          {% if g.link %}<p><a href="{{ g.link }}">Profile</a></p>{% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <nav class="episode-nav">
+    {% assign eps = site.episodes | sort: "date" %}
+    {% assign idx = 0 %}
+    {% for e in eps %}{% if e.url == page.url %}{% assign idx = forloop.index0 %}{% endif %}{% endfor %}
+    <div class="row">
+      <div class="col left">
+        {% if idx > 0 %}
+          {% assign prev = eps[idx | minus: 1] %}
+          <a href="{{ prev.url | relative_url }}">&larr; Previous: {{ prev.title }}</a>
+        {% endif %}
+      </div>
+      <div class="col right">
+        {% if idx < eps.size | minus: 1 %}
+          {% assign next = eps[idx | plus: 1] %}
+          <a href="{{ next.url | relative_url }}">Next: {{ next.title }} &rarr;</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+</article>

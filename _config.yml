@@ -1,0 +1,52 @@
+title: "CTRL+ALT+DEFEND"
+description: "The podcast for defenders who want actionable, real-world tactics and strategies — delivered in a story-driven, visual-friendly format."
+url: ""  # set your production URL e.g., https://yourname.github.io
+baseurl: ""  # if publishing to a project page repo, set to "/repo-name"
+timezone: America/Los_Angeles
+
+# Collections
+collections:
+  episodes:
+    output: true
+    permalink: /episodes/:title/
+  guests:
+    output: true
+    permalink: /guests/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "episodes"
+    values:
+      layout: episode
+  - scope:
+      path: ""
+      type: "guests"
+    values:
+      layout: page
+
+# Build
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Site vars
+brand:
+  primary_blue: "#0A1C40"
+  secondary_accent: "#2E86AB"
+  neutral_dark: "#1A1A1A"
+  neutral_light: "#F2F4F8"
+  accent: "#B8C8D8"
+
+social:
+  twitter: ""
+  linkedin: ""
+
+analytics:
+  provider: "none" # "plausible" or "ga"
+  plausible_domain: ""
+  ga_measurement_id: ""
+
+# Exclude dev files
+exclude:
+  - README_local.md

@@ -1,0 +1,11 @@
+[
+{% assign eps = site.episodes | sort: "date" | reverse %}
+{% for e in eps %}
+  {
+    "url": "{{ e.url | relative_url }}",
+    "title": {{ e.title | jsonify }},
+    "summary": {{ e.summary | jsonify }},
+    "tags": {{ e.tags | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

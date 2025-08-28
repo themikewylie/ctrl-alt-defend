@@ -1,0 +1,35 @@
+---
+layout: null
+permalink: /podcast.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>{{ site.title | xml_escape }}</title>
+    <link>{{ site.url }}{{ site.baseurl }}</link>
+    <language>en-us</language>
+    <description>{{ site.description | xml_escape }}</description>
+    <itunes:author>CTRL+ALT+DEFEND</itunes:author>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:category text="Technology">
+      <itunes:category text="Tech News"/>
+    </itunes:category>
+    <itunes:type>episodic</itunes:type>
+    {% assign eps = site.episodes | sort: "date" | reverse %}
+    {% for e in eps %}
+    <item>
+      <title>{{ e.title | xml_escape }}</title>
+      <description>{{ e.summary | xml_escape }}</description>
+      <link>{{ site.url }}{{ e.url }}</link>
+      <guid isPermaLink="false">{{ e.url }}</guid>
+      <pubDate>{{ e.date | date_to_rfc822 }}</pubDate>
+      {% if e.audio and e.audio.mp3_url %}
+      <enclosure url="{{ e.audio.mp3_url }}" length="{{ e.audio.filesize_bytes | default: 0 }}" type="{{ e.audio.mime_type | default: 'audio/mpeg' }}"/>
+      {% endif %}
+      <itunes:episode>{{ e.episode_number }}</itunes:episode>
+      <itunes:duration>{{ e.duration | default: '00:00:00' }}</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
