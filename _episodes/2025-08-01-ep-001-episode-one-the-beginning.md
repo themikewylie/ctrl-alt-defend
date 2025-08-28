@@ -3,13 +3,13 @@ layout: episode
 title: "Episode 001: Episode One: The Beginning"
 episode_number: 1
 date: 2025-08-01
-summary: "Kickoff of CTRL+ALT+DEFEND: why OT/IoT security & threat hunting need a new, story-driven format."
+summary: "Kickoff of CTRL+ALT+DEFEND: meet the show hosts and their unique stories."
 duration: "00:42:10"
-topics: ["OT","IoT","Threat Hunting","IR"]
+topics: ["Threat Hunting","IR"]
 guests:
-  - name: "Jordan Smith"
-    title: "CISO"
-    org: "IndustrialCo"
+  - name: "Michael Wylieh"
+    title: "Director, Threat Hunting"
+    org: "Zscaler"
 audio:
   mp3_url: "https://cdn.example.com/podcast/ep1.mp3"
   filesize_bytes: 12345678
