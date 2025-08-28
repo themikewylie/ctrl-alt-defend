@@ -1,7 +1,7 @@
 title: "CTRL+ALT+DEFEND"
 description: "The podcast for defenders who want actionable, real-world tactics and strategies — delivered in a story-driven, visual-friendly format."
-url: ""  # set your production URL e.g., https://yourname.github.io
-baseurl: "https://github.com/themikewylie/ctrl-alt-defend"  # if publishing to a project page repo, set to "/repo-name"
+url: "https://themikewylie.github.io"  # set your production URL e.g., https://yourname.github.io
+baseurl: "/ctrl-alt-defend"  # if publishing to a project page repo, set to "/repo-name"
 timezone: America/Los_Angeles
 
 # Collections
