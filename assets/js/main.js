@@ -1,3 +1,16 @@
+---
+---
+(function(){
+  const searchInput = document.getElementById('search');
+  const resultsEl = document.getElementById('results');
+  if(!searchInput || !resultsEl) return;
+
+  fetch('{{ "/episodes.json" | relative_url }}')  // <-- key change
+    .then(r=>r.json())
+    .then(data=>{ /* …unchanged… */ });
+})();
+
+
 // Client-side episode search using Lunr and /episodes.json
 (function(){
   const searchInput = document.getElementById('search');
